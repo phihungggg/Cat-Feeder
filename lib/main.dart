@@ -68,10 +68,36 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
     return Scaffold(
+
+     // backgroundColor:Color(0xFF65835C) ,
       appBar: AppBar(
  
       ),
-      body: Column(
+      body:
+      
+      Container(
+
+
+         //  padding: const EdgeInsets.all(16), // khoảng cách trong
+  //margin: const EdgeInsets.all(12), // khoảng cách ngoài
+  decoration: BoxDecoration(
+    gradient: LinearGradient(colors:
+    [//DBDBDB
+  Color(0xFFDBDBDB),
+  Color(0xFFC3DBB5)
+
+    ],
+    stops: [0.33, 1.0], // 33% đến 100%
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter
+    ),
+     // nền Container
+    
+   
+  ),
+
+
+       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [ GreenCard(width: Greencard_input.width_modified,height: Greencard_input.height_modified,)
         , 
@@ -91,11 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ]
 
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      )
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 
-
+import 'Greenbutton_other_components/Sliding_page.dart';
 
 // Start: modify input data before put it into widget 
 class GreenCard_Input_modified {
@@ -45,32 +45,72 @@ class GreenCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
-        width: width,
-      height: height, // chiều cao
-        decoration: BoxDecoration(
-          color: Colors.green[400], // màu xanh
-          borderRadius: BorderRadius.circular(20), // bo góc
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.2), // bóng mờ
-              blurRadius: 8,
-              offset: const Offset(0, 4),
+      child: Stack(
+        children: [Container(
+          padding:EdgeInsets.only(left: 15,top:15),
+          width: width,
+        height: height, // chiều cao
+          decoration: BoxDecoration(
+          
+            gradient: RadialGradient(colors: [
+               
+              
+              Color(0xFF1FB311),
+             Color(0xFF0D4D07).withValues(alpha:0.8),
+            ]
+            ,
+            center: Alignment.center,
+            stops: [0.0,0.1],
+            radius: 10.0, 
+            ),
+              
+        
+            //color: Colors.green[400], // màu xanh
+            borderRadius: BorderRadius.circular(20), // bo góc
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.2), // bóng mờ
+                blurRadius: 8,
+                offset: const Offset(0, 4),
+              ),
+            ],
+          ),
+          alignment: Alignment.topLeft,
+          child: Stack(
+          children: [
+            // Stroke (viền)
+            Text(
+        "Xin chào Minh Phương,\n"
+        "cùng cho Su Kem ăn nhé.",
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: 15,
+          fontWeight: FontWeight.w600,
+          fontFamily: 'Pacifico',
+          foreground: Paint()
+            ..style = PaintingStyle.stroke
+            ..strokeWidth = 3
+            ..color = Color(0xFF599853),
+        ),
+            ),
+            // Fill (nội dung chữ)
+            Text(
+        "Xin chào Minh Phương,\n"
+        "cùng cho Su Kem ăn nhé.",
+        textAlign: TextAlign.center,
+        style: const TextStyle(
+          fontSize: 15,
+          fontWeight: FontWeight.w600,
+          fontFamily: 'Pacifico',
+          color: Colors.white, // chỉ fill màu
+        ),
             ),
           ],
         ),
-        alignment: Alignment.center,
-        child: const Text(
-          "Xin chào Minh Phương, cùng đặt\n"
-          "giờ ăn cho mấy bé nhé.",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 20,
-            color: Colors.white,
-            fontWeight: FontWeight.w600,
-            fontFamily:  'Faustina'
-          ),
         ),
+
+        SlidingPage(height: height, width: width),
+        ]
       ),
     );
   }

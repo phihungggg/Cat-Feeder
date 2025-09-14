@@ -32,13 +32,14 @@ class Greenbutton extends StatelessWidget {
       child:Container(
   padding: const EdgeInsets.all(8), // khoảng cách ngoài button
   decoration: BoxDecoration(
-    borderRadius: BorderRadius.circular(24),
+    borderRadius: BorderRadius.circular(40),
     boxShadow: [
-      BoxShadow(
-        color: Colors.black.withOpacity(0.2),
-        blurRadius: 6,
-        offset: const Offset(0, 3),
-      ),
+     BoxShadow(
+  color: Colors.black.withValues(alpha: 0.17), // 25%
+  blurRadius: 20, // Blur
+  offset: const Offset(10, 10), // X:0, Y:4
+  spreadRadius: 0, // Spread
+),
     ],
   ),
   child: SizedBox(
@@ -50,7 +51,11 @@ class Greenbutton extends StatelessWidget {
         backgroundColor: Colors.green[400],
        // padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(40),
+          side: const BorderSide(
+      color: Color(0xFF65835C), // màu stroke (theo Figma bạn gửi)
+      width: 1, // độ dày stroke
+    ),
         ),
       ),
       child: Text(
