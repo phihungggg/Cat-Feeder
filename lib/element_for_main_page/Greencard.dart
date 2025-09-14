@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 
-import 'Greenbutton_other_components/Sliding_page.dart';
+import 'Greencard_other_components/Sliding_page.dart';
+
+import 'Greencard_other_components/Calendar_from_to.dart';
 
 // Start: modify input data before put it into widget 
 class GreenCard_Input_modified {
@@ -109,7 +111,159 @@ class GreenCard extends StatelessWidget {
         ),
         ),
 
-        SlidingPage(height: height, width: width),
+
+       // SlidingPage(height: height, width: width),
+
+
+       Positioned(
+        bottom: 0,
+         child: Container(
+           decoration:  BoxDecoration(
+            gradient: RadialGradient(colors: [
+              Color(0xFFFFFFFF).withValues(alpha: 0.7),
+              Color(0xFFE3D5D5).withValues(alpha: 0.7),
+
+            ],
+            
+              center: Alignment.center,
+            stops: [0.0,0.1],
+            radius: 10.0, 
+            ),
+            borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20)),
+           ),
+               width: width,
+               height: height/2,
+               
+
+        child: Column(
+
+          children: [
+            Container(
+              
+              margin: const EdgeInsets.only(top: 8),
+              child: Row(
+              
+                //  mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+              
+                  Expanded(child: Container( padding:const EdgeInsets.only(left: 10) , child: Row(
+                  
+                    children: [
+                      Stack(children: [Text('From ',
+                      style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w600,
+                                  fontFamily: 'Faustina',
+                                  foreground: Paint()
+                                    ..style = PaintingStyle.stroke
+                                    ..strokeWidth = 1
+                                    ..color = Color(0xFFFFFAFA).withValues(alpha: 0.6),
+                                ),
+                                        ),
+                                        
+                                        Text('From ',
+                                        style: const TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w600,
+                                      fontFamily: 'Faustina',
+                                      color: Color(0xFF4A4343), // chỉ fill màu
+                                    ),
+                                        ),
+                                        
+                                         ]),
+
+                        CalendarFromTo()
+                    ],
+                    
+                  ))),
+              
+                  Expanded(child: Container( padding:const EdgeInsets.only(left: 10) , child: Row(
+
+                   
+                    children: [
+                      Stack(children: [Text('To ',
+                      style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w600,
+                                  fontFamily: 'Faustina',
+                                  foreground: Paint()
+                                    ..style = PaintingStyle.stroke
+                                    ..strokeWidth = 1
+                                    ..color = Color(0xFFFFFAFA).withValues(alpha: 0.6),
+                                ),
+                                        ),
+                                        
+                                        Text('To ',
+                                        style: const TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w600,
+                                      fontFamily: 'Faustina',
+                                      color: Color(0xFF4A4343), // chỉ fill màu
+                                    ),
+                                        ),
+                                        
+                                         ]),
+                                          CalendarFromTo(),
+                    ],
+                    
+                  ))),
+              
+                ],
+              
+              ),
+            ),
+
+             Container(
+              
+              margin: const EdgeInsets.only(top: 8),
+              child: Row(
+              
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+              
+                  Expanded(child: Container( padding:const EdgeInsets.only(left: 50) , child: Row(
+                   //  mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Stack(children: [Text('Số lần cho ăn ',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w600,
+                                  fontFamily: 'Faustina',
+                                  foreground: Paint()
+                                    ..style = PaintingStyle.stroke
+                                    ..strokeWidth = 1
+                                    ..color = Color(0xFFFFFAFA).withValues(alpha: 0.4),
+                                ),
+                                        ),
+                                        
+                                        Text('Số lần cho ăn ',
+                                        style: const TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w600,
+                                      fontFamily: 'Faustina',
+                                      color: Color(0xFF4A4343), // chỉ fill màu
+                                    ),
+                                        ),
+                                        
+                                         ]),
+                    ],
+                  ))),
+              
+                  
+              
+                ],
+              
+              ),
+            ),
+
+
+          ],
+
+        ),
+
+         ),
+       ),
         ]
       ),
     );

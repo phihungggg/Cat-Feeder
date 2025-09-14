@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+
+
+import 'dart:math';
 import 'element_for_main_page/Greencard.dart' ;
 import 'element_for_main_page/Greenbutton.dart';
 void main() {
@@ -41,7 +44,7 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -51,6 +54,26 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+
+
+late Animation _arrowAnimation;
+late AnimationController _arrowAnimationController;  
+
+  @override
+  void initState(){
+
+    super.initState();
+
+  _arrowAnimationController = AnimationController(vsync: this, duration: Duration(milliseconds: 300) );
+
+
+_arrowAnimation = Tween(begin: 0.0, end:pi ).animate(_arrowAnimationController);
+
+
+
+
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -58,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
     GreenCard_Input_modified Greencard_input=
      GreenCard_Input_modified(width: MediaQuery.of(context).size.width,height:
       MediaQuery.of(context).size.height);
-
+  
 
 
   Greenbutton_Input_modified Greenbutton_input = 
